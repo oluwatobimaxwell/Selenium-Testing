@@ -63,4 +63,13 @@ public class Base {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         return element;
     }
+
+    public static WebElement waitUntilVisible( WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            return null; // Return null if element is not found within timeout
+        }
+    }
 }
