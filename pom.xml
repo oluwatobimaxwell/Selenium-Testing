@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
     </properties>
 
     <dependencies>
@@ -21,6 +21,7 @@
             <artifactId>selenium-java</artifactId>
             <version>4.15.0</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -48,24 +49,62 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.23.0</version>
+        </dependency>
+
+
     </dependencies>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>3.2.3</version>-->
+<!--                &lt;!&ndash; <configuration>-->
+<!--                    <systemPropertyVariables>-->
+<!--                        <username>${un}</username>-->
+<!--                        <password>${pwd}</password>-->
+<!--                    </systemPropertyVariables>-->
+<!--                </configuration>-->
+<!--                !&ndash;&gt;-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
     <build>
         <plugins>
+            <!-- Add other plugins as needed -->
+
+            <!-- Plugin to execute external commands -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.3</version>
-                <!-- <configuration>
-                    <systemPropertyVariables>
-                        <username>${un}</username>
-                        <password>${pwd}</password>
-                    </systemPropertyVariables>
-                </configuration>
-                !-->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-pdf-report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>wkhtmltopdf</executable>
+                            <arguments>
+                                <argument>allure-report/index.html</argument>
+                                <argument>allure-report/allure_report.pdf</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+
 
 
 </project>
