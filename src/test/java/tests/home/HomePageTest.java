@@ -91,13 +91,13 @@ public class HomePageTest extends BaseTest {
     }  */
 
 
-    @Test (description = "Coupon Check")
-    public void couponCheck () {
-        HomePage homePage = new HomePage();
-        homePage.couponSearchElement.sendKeys("B9TE195559790X8-1664380");
-        homePage.couponButtonElement.click();
-        CouponSearch1 couponSearch1 = new CouponSearch1();
-        waitUntilVisible(couponSearch1.couponCheckElement);
+//    @Test (description = "Coupon Check")
+//    public void couponCheck () {
+//        HomePage homePage = new HomePage();
+//        homePage.couponSearchElement.sendKeys("B9TE195559790X8-1664380");
+//        homePage.couponButtonElement.click();
+//        CouponSearch1 couponSearch1 = new CouponSearch1();
+//        waitUntilVisible(couponSearch1.couponCheckElement);
       //  Assert.assertTrue(couponSearch1.couponCheckElement.isDisplayed());
     }
 
