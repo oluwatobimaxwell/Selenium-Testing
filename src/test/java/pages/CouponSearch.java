@@ -30,6 +30,7 @@ public class CouponSearch extends BasePage {
         boolean isDisplayed = resultCouponElement.isDisplayed();
         driver.switchTo().parentFrame();
         return  isDisplayed;
+
     }
 
 }

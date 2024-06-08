@@ -89,6 +89,7 @@ public class HomePageTest extends BaseTest {
         Assert.assertEquals(driver.getTitle(), "lotto_results.pdf");
         Assert.assertTrue(lottoResultPage.lottoResultElement.isDisplayed());
     }  */
+    hhhjj
 
     @Test (description = "Coupon Check")
     public void couponCheck () {
