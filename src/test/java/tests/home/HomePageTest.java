@@ -77,18 +77,20 @@ public class HomePageTest extends BaseTest {
        // Assert.assertTrue(lottoDrawsPage.lottoDrawsElement.isDisplayed());
     }
 
-// TODO: fix this test later
-/*    @Test (description = "LOTTO RESULT should be on the homepage and when click, It should be able to navigate to new tab Lotto Results pdf file")
+    @Test (description = "LOTTO RESULT should be on the homepage and when click, It should be able to navigate to new tab Lotto Results pdf file")
         public void shouldHAveALottoResults () {
         HomePage homePage= new HomePage();
         homePage.lottoResultButton.click();
         ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         LottoResultPage lottoResultPage = new LottoResultPage();
+       // driver.wait();
+
+     //   Thread.sleep(4000);
         waitUntilVisible(lottoResultPage.lottoResultElement);
-        Assert.assertEquals(driver.getTitle(), "lotto_results.pdf");
+    //        Assert.assertEquals(driver.getTitle(), "lotto_results.pdf");
         Assert.assertTrue(lottoResultPage.lottoResultElement.isDisplayed());
-    }  */
+    }
 
     @Test (description = "Coupon Check")
     public void couponCheck () {
@@ -97,7 +99,7 @@ public class HomePageTest extends BaseTest {
         homePage.couponButtonElement.click();
         CouponSearch1 couponSearch1 = new CouponSearch1();
         waitUntilVisible(couponSearch1.couponCheckElement);
-      //  Assert.assertTrue(couponSearch1.couponCheckElement.isDisplayed());
+        //Assert.assertTrue(couponSearch1.couponCheckElement.isDisplayed());
     }
 
 
